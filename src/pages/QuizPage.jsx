@@ -1,9 +1,10 @@
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Content from "../layout/common/Content.jsx";
 import Layout from "../layout/index.jsx";
 import AudioPlayer from "@components/AudioPlayer";
+import { useTranslation } from "react-i18next";
 // import "../src/assets/test.m4a";
 const QuizPage = () => {
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -51,8 +52,12 @@ const QuizPage = () => {
     setAnswers(dpCopyAnswer);
   };
   const smUp = useMediaQuery("(max-width:1047px)");
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage("en");
+  }, []);
   return (
-    <Layout>
+    <Layout onLanguageChange={i18n.changeLanguage}>
       <Content
         disabled={!Boolean(answers[activeQuestion])}
         onClick={() => {
@@ -64,7 +69,7 @@ const QuizPage = () => {
         {questions[activeQuestion]?.audio && !smUp && (
           <div className={"w-full  items-center flex flex-col gap-4"}>
             <p className={"text-lg text-primary text-center"}>
-              Listen the audio below to answer
+              {t("quiz.instructionOne")}
             </p>
             <AudioPlayer src={questions[activeQuestion].audio} />
           </div>

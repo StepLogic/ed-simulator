@@ -1,11 +1,14 @@
 import { IconButton } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { CaChevronRightLarge } from "@components/Icons";
 import LinearProgress from "@mui/material/LinearProgress";
 import Button from "@mui/material/Button";
 import Footer from "./Footer.jsx";
+import { useTranslation } from "react-i18next";
 
 function Content(props) {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="flex flex-col">
@@ -16,7 +19,9 @@ function Content(props) {
               onClick={() => props?.onBack()}
             >
               <CaChevronRightLarge className="rotate-180 h-[20px]" />
-              <p className="font-semibold text-[20px]">Back</p>
+              <p className="font-semibold text-[20px]">
+                {t("quiz.backButton")}
+              </p>
             </IconButton>
           </div>
           <LinearProgress
@@ -40,7 +45,7 @@ function Content(props) {
             disabled={props?.disabled}
             onClick={props?.onClick}
           >
-            {"Next"}
+            {t("quiz.button")}
           </Button>
         }
       />
