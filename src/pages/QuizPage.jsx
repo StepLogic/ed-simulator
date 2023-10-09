@@ -1,16 +1,10 @@
-import {
-  ArrowBackIosRounded,
-  ArrowForwardIosRounded,
-} from "@mui/icons-material";
 import { Box, Button, Typography, useMediaQuery } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import logoEduBianco from "../assets/img/logoEduBianco.svg";
-import Header from "../components/Header";
-import ContentLayout from "./common/content-layout";
-import ContentView from "./common/ContentView";
-
+import Content from "../layout/common/Content.jsx";
+import Layout from "../layout/index.jsx";
+import AudioPlayer from "@components/AudioPlayer";
+// import "../src/assets/test.m4a";
 const QuizPage = () => {
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -20,11 +14,14 @@ const QuizPage = () => {
   const questions = [
     {
       question: "I called Tom, ___ he didn't answer.",
+      audio:
+        "https://api.edusogno.com/api/user/v1/ielts/audio/stream/pwXbCXJnFpNsE82T12V4Mzegb8sZ",
       options: ["and", "but", "or", "so"],
       correctAnswer: "but",
     },
     {
       question: "Tommy ___ died.",
+
       options: ["are", "were", "is", "will"],
       correctAnswer: "but",
     },
@@ -34,7 +31,7 @@ const QuizPage = () => {
       correctAnswer: "but",
     },
   ];
-  const smUp = useMediaQuery("(max-width:1047px)");
+
   const next = () => {
     if (activeQuestion + 1 === questions.length - 1) {
       navigate("/results");
@@ -53,130 +50,112 @@ const QuizPage = () => {
     dpCopyAnswer[activeQuestion] = value;
     setAnswers(dpCopyAnswer);
   };
-
+  const smUp = useMediaQuery("(max-width:1047px)");
   return (
-    <ContentView
-      disabled={!Boolean(answers[activeQuestion])}
-      onClick={() => {
-        next();
-      }}
-      onBack={() => back()}
-      progress={(activeQuestion + 0.01) / (questions.length - 1)}
-    >
-      <Typography
-        color={"primary"}
-        sx={{
-          fontSize: "calc(22px + 1vw)",
-          textAlign: "center",
-          ["@media (max-width:763px)"]: {
-            minHeight: "80px",
-          },
+    <Layout>
+      <Content
+        disabled={!Boolean(answers[activeQuestion])}
+        onClick={() => {
+          next();
         }}
+        onBack={() => back()}
+        progress={(activeQuestion + 0.01) / (questions.length - 1)}
       >
-        {questions[activeQuestion].question}
-      </Typography>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          width: "90%",
-          gap: "1rem",
-
-          "& button": {
-            fontWeight: "400",
-            maxHeight: "56px",
-          },
-          ["@media (min-width:763px)"]: {
-            gridTemplateColumns: "1fr 1fr 1fr 1fr",
-            marginTop: "10vh",
-            "& button": {
-              width: "100%",
-              minWidth: "174px",
-              textTransform: "none",
-              fontSize: "24px",
-            },
-          },
-          ["@media (min-width:1047px)"]: {
-            "& button": {
-              width: "100%",
-              minWidth: "calc(200px + 5vw)",
-              textTransform: "none",
-            },
-          },
-          ["@media (max-width:763px)"]: {
-            "& button": {
-              minWidth: "90vw",
-              textTransform: "none",
-            },
-          },
-        }}
-      >
-        {questions[activeQuestion].options.map((r) => (
-          <Button
-            size="large"
-            variant="contained"
-            disableElevation
-            color={r === answers[activeQuestion] ? "primary" : "buttonBack"}
-            onClick={() => {
-              selectAnswer(r);
-            }}
-            sx={{
-              color:
-                r === answers[activeQuestion] ? "#ffffff" : "#2D224C!important",
-            }}
-          >
-            {r}
-          </Button>
-        ))}
-      </Box>
-      {/* <Box
+        {questions[activeQuestion]?.audio && !smUp && (
+          <div className={"w-full  items-center flex flex-col gap-4"}>
+            <p className={"text-lg text-primary text-center"}>
+              Listen the audio below to answer
+            </p>
+            <AudioPlayer src={questions[activeQuestion].audio} />
+          </div>
+        )}
+        <Typography
+          color={"primary"}
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            width: "100%",
-            "& button": {
-              width: "254px",
+            fontSize: "calc(22px + 1vw)",
+            textAlign: "center",
+            ["@media (max-width:763px)"]: {
+              minHeight: "80px",
             },
-            ["@media (max-width:1047px)"]: {
+          }}
+        >
+          {questions[activeQuestion].question}
+        </Typography>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            width: "90%",
+            gap: "1rem",
+
+            "& button": {
+              fontWeight: "400",
+              maxHeight: "56px",
+            },
+            ["@media (min-width:763px)"]: {
+              gridTemplateColumns: "1fr 1fr 1fr 1fr",
+              marginTop: "10vh",
               "& button": {
-                aspectRatio: "1/1",
-                borderRadius: "50%!important",
-                width: "initial",
+                width: "100%",
+                minWidth: "174px",
+                textTransform: "none",
+                fontSize: "24px",
+              },
+            },
+            ["@media (min-width:1047px)"]: {
+              "& button": {
+                width: "100%",
+                minWidth: "calc(200px + 5vw)",
+                textTransform: "none",
+              },
+            },
+            ["@media (max-width:763px)"]: {
+              "& button": {
+                minWidth: "90vw",
+                textTransform: "none",
               },
             },
           }}
         >
-          {activeQuestion !== 0 && (
+          {questions[activeQuestion].options.map((r) => (
             <Button
-              variant="contained"
-              color="buttonBack"
               size="large"
-              // sx={{ }}
-              onClick={() => back()}
+              variant="contained"
+              disableElevation
+              color={r === answers[activeQuestion] ? "primary" : "buttonBack"}
+              onClick={() => {
+                selectAnswer(r);
+              }}
+              sx={{
+                height: 59,
+                border: "none",
+                fontSize: "24px",
+                borderRadius: "9px",
+                ["@media (max-width:763px)"]: { height: 34, fontSize: "18px" },
+                color:
+                  r === answers[activeQuestion]
+                    ? "#ffffff"
+                    : "#8065C9!important",
+                backgroundColor:
+                  r === answers[activeQuestion]
+                    ? "#8065C9"
+                    : "#F1EDFF!important",
+              }}
             >
-              <ArrowBackIosRounded
-                fontSize={smUp ? "small" : "medium"}
-                className="lg:absolute lg:left-4"
-              />
-              {!smUp && <span>back</span>}
+              {r}
             </Button>
-          )} */}
-      {/* <Button
-          disabled={!Boolean(answers[activeQuestion])}
-          variant="contained"
-          color="button"
-          size="large"
-          onClick={() => next()}
-        >
-          {!smUp && <span>Next</span>}
-          <ArrowForwardIosRounded
-            className="lg:absolute lg:right-4"
-            fontSize={smUp ? "small" : "medium"}
-          />
-        </Button> */}
-      {/* </Box> */}
-    </ContentView>
+          ))}
+        </Box>
+        {questions[activeQuestion]?.audio && smUp && (
+          <div className={"w-full  items-center flex flex-col gap-2 px-4"}>
+            <p className={"text-[10px] text-primary text-center"}>
+              Listen the audio below to answer
+            </p>
+            <AudioPlayer src={questions[activeQuestion].audio} />
+          </div>
+        )}
+      </Content>
+    </Layout>
   );
 };
 

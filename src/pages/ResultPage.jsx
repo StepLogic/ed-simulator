@@ -1,61 +1,44 @@
 import Button from "@mui/material/Button";
-import Header from "./common/Header";
-import Footer from "./common/Footer";
-import { EdFinish } from "@components/Illustration";
+
+import { EdFinish, EdStart } from "@components/Illustration";
+import Layout from "../layout/index.jsx";
+import Subtext from "../layout/common/Subtext.jsx";
+import Footer from "../layout/common/Footer.jsx";
+import React from "react";
 
 function ResultsPage(props) {
   return (
-    <>
-      <div
-        data-content
-        className="flex flex-col items-center justify-between py-4 gap-8 max-w-[760px]  px-[min(10%,2rem)] mx-auto"
-      >
-        <Header> Great! Thanks for taking the time</Header>
-        <EdFinish className="w-8/12 md:[516px] lg:w-[216px]" />
-        <div className="text-base md:text-2xl text-center mt-4 flex flex-col mb-4">
-          <p className="text-secondary font-semibold">
-            Your level will be assessed by our team
+    <Layout>
+      <div className="flex flex-col items-center justify-between h-full py-4 lg:px-0 px-3 max-w-[750px] mx-auto">
+        <Subtext text={"Great! Thanks for taking the time to do the test"} />
+        <EdFinish className="w-2/5 lg:w-[316px]" />
+        <div className="text-base text-center mt-4 px-4 lg:px-0">
+          <p className="text-secondary">
+            Your level will be assessed by our team.
           </p>
-          <p className="text-primary px-4">
-            Go to login and improve it when your course starts
+          <p className="text-primary mt-4">
+            Go to the login and improve it when your course starts.
           </p>
-          <p className="text-primary font-semibold mt-6">
+          <p className="text-primary font-semibold mt-4 text-base">
             We hope you will enjoy the course!
           </p>
         </div>
       </div>
       <Footer
-        prompt={
-          <>
-            {/* {text[3].split(":")[0]}&nbsp;<b>{text[3].split(":")[1]}</b> */}
-          </>
-        }
         button={
-          // <div className="flex flex-row items-center gap-2 lg:gap-8 lg:max-w-[600px] max-w-[90vw] w-full px-4">
           <Button
-            variant="contained"
-            color="white"
-            size="large"
-            className="lg:max-w-[599px] max-w-[90vw] w-full text-primary"
+            color={"white"}
+            onClick={() => {
+              navigate("/quiz");
+            }}
+            size={"large"}
+            variant={"contained"}
           >
-            go to login
+            Go to login
           </Button>
-          // <Button
-          //   variant="contained"
-          //   color="button"
-          //   component="a"
-          //   size="large"
-          //   target="_blank"
-          //   href="https://ed-simulator.vercel.app"
-          //   className="lg:max-w-[599px] max-w-[90vw] w-full"
-          // >
-          //   <p className="hidden lg:block"> {text[5]}</p>
-          //   <p className="lg:hidden block"> {text[6]}</p>
-          // </Button>
-          // </div>
         }
       />
-    </>
+    </Layout>
   );
 }
 

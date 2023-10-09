@@ -2,13 +2,13 @@ import { IconButton } from "@mui/material";
 import React from "react";
 import { CaChevronRightLarge } from "@components/Icons";
 import LinearProgress from "@mui/material/LinearProgress";
-import Footer from "./Footer";
 import Button from "@mui/material/Button";
+import Footer from "./Footer.jsx";
 
-function ContentView(props) {
+function Content(props) {
   return (
     <>
-      <div data-content className="flex flex-col">
+      <div className="flex flex-col">
         <div className="flex flex-col">
           <div className="h-[41px] bg-[#D9DAF3] flex flex-row items-center justify-start gap-4 px-[min(10%,2rem)]">
             <IconButton
@@ -25,17 +25,18 @@ function ContentView(props) {
             value={props?.progress * 100}
           />
         </div>
-        <div className="flex flex-col justify-center items-center h-full">
+        <div className="flex flex-col  justify-evenly items-center h-full">
           {props?.children}
         </div>
       </div>
+
       <Footer
+        noBackground={true}
         button={
           <Button
-            size="large"
+            size="medium"
             variant="contained"
             color="button"
-            className="lg:max-w-[599px] max-w-[90vw] w-full"
             disabled={props?.disabled}
             onClick={props?.onClick}
           >
@@ -47,4 +48,4 @@ function ContentView(props) {
   );
 }
 
-export default ContentView;
+export default Content;

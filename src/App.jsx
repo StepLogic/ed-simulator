@@ -2,10 +2,11 @@ import "./index.css";
 
 import { LinearProgress, ThemeProvider } from "@mui/material";
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 
 import { theme } from "./assets/theme/theme";
 import ResultPage from "./pages/ResultPage";
+import Layout from "./layout/index.jsx";
 
 // const DashboardPage = React.lazy(() => import("@pages/DashboardPage"));
 const LandingPage = React.lazy(() => import("@pages/LandingPage"));
@@ -25,7 +26,14 @@ const App = () => {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <Routes>
-            <Route path="/" element={<LayoutPage />}>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Outlet />
+                </>
+              }
+            >
               <Route index element={<LandingPage />} />
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/results" element={<ResultPage />} />

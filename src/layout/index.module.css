@@ -1,0 +1,50 @@
+.root {
+    display: grid;
+    grid-template-rows: 125px  calc(calc(100% - 128px) - 108px) 108px;
+    min-height: 500px;
+    height: calc(99.9999 * var(--vh, 1vh));
+}
+
+@media only screen and (max-width: 763px) {
+    .root {
+        grid-template-rows: 90px calc(100% - 201px) 111px;
+    }
+
+    .header {
+        background-size: cover;
+        background-image: url("/src/assets/img/bgHeaderSmall.png");
+        background-repeat: no-repeat;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+    background-size: cover;
+    background-image: url("/src/assets/img/bgHeaderLg.png");
+    background-repeat: no-repeat;
+    @apply pt-8 lg:pt-[3rem] px-[1.5rem];
+}
+
+.footer {
+    background: #d9daf3;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer .prompt {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 99.5%;
+    text-align: center;
+    color: #2d224c;
+}
+
+.select {
+}

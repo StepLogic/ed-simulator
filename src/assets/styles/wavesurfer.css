@@ -1,0 +1,12 @@
+wave {
+    display: block !important;
+    cursor: pointer !important;
+    overflow: hidden !important;
+    position: relative;
+}
+
+/* wave wave {}
+    
+wave canvas {
+    width: 1283px;
+} */

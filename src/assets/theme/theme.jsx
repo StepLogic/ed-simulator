@@ -1,11 +1,12 @@
-import { createTheme } from "@mui/material/styles";
-
-import PoppinsMedium from "@font/PoppinsMedium.ttf";
-import PoppinsMediumItalic from "@font/Poppins-MediumItalic.ttf";
+import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: "Poppins",
+    // fontFamily: 'Poppins',
+    fontFamily: 'Poppins, Inter',
+    button: {
+      textTransform: 'none',
+    },
   },
   breakpoints: {
     values: {
@@ -21,67 +22,58 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#8065C9 !important",
-      contrastText: "#fff",
+      main: '#8065C9 !important',
+      contrastText: '#fff',
     },
     secondary: {
-      main: "#2D224C !important",
-      contrastText: "#fff",
+      main: '#2D224C !important',
+      contrastText: '#fff',
     },
     buttonBack: {
-      main: "#D9DAF3 !important",
-      contrastText: "#8065C9 !important",
+      main: '#D9DAF3 !important',
+      contrastText: '#2D224C !important',
     },
     red: {
-      main: "#E90000 !important",
-      contrastText: "#fff !important",
+      main: '#E90000 !important',
+      contrastText: '#fff !important',
     },
     buttonGreen: {
-      main: "#74DFAC !important",
-      contrastText: "#31602A !important",
+      main: '#74DFAC !important',
+      contrastText: '#31602A !important',
     },
     green: {
-      main: "#74DFAC !important",
-      contrastText: "#fff !important",
+      main: '#74DFAC !important',
+      contrastText: '#fff !important',
     },
+    lightPrimary: { main: '#d9daf3', contrastText: '#2D224C' },
+
     button: {
-      main: "#D4145A !important",
-      contrastText: "#fff",
+      // main: "#D4145A !important",
+      // contrastText: "#fff",
+      main: '#8065C9 !important',
+      contrastText: '#fff',
+    },
+
+    button2: {
+      // main: "#D4145A !important",
+      // contrastText: "#fff",
+      main: '#fff !important',
+      contrastText: '#8065C9',
     },
     message: {
-      main: "#4CAF50 !important",
+      main: '#4CAF50 !important',
     },
     white: {
-      main: "#fff !important",
+      main: '#fff !important',
     },
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: `
-          @font-face {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-display: swap;
-            font-weight: medium;
-            src: local('Poppins'), url(${PoppinsMedium}) format('ttf');
-            unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
-          },
-            @font-face {
-            font-family: 'Poppins';
-            font-style: italic;
-            font-display: swap;
-            font-weight: medium;
-            src: local('Poppins'), url(${PoppinsMediumItalic}) format('ttf');
-            unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
-          }
-        `,
-    },
     MuiDesktopDatePicker: {
       styleOverrides: {
         root: {
-          display: "none",
-          "&.Mui-selected": {
-            color: "white!important",
+          display: 'none',
+          '&.Mui-selected': {
+            color: 'white!important',
           },
         },
       },
@@ -89,8 +81,8 @@ export const theme = createTheme({
     MuiTab: {
       styleOverrides: {
         root: {
-          "&.Mui-selected": {
-            color: "white!important",
+          '&.Mui-selected': {
+            color: 'currentColor!important',
           },
         },
       },
@@ -98,89 +90,112 @@ export const theme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          ["@media (min-width:768px)"]: {
+          ['@media (min-width:768px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "24px",
+            fontSize: '1.5rem',
           },
-          ["@media (min-width:1024px)"]: {
+
+          // ["@media (min-width:1024px)"]: {
+          //   // eslint-disable-line no-useless-computed-key
+          //   fontSize: "26px",
+          // },
+          // ["@media (min-width:1280px)"]: {
+          //   // eslint-disable-line no-useless-computed-key
+          //   fontSize: "28px",
+          // },
+          ['@media (min-width:1920px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "26px",
+            fontSize: '28px',
           },
-          ["@media (min-width:1280px)"]: {
+          ['@media (min-width:2300px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "28px",
+            fontSize: '30px',
           },
-          ["@media (min-width:1920px)"]: {
+          ['@media (min-width:3500px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "32px",
-          },
-          ["@media (min-width:2300px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "36px",
-          },
-          ["@media (min-width:3500px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "55px",
+            fontSize: '36px',
           },
           marginTop: 0,
-          color: "#2D224C",
-          fontSize: "19px",
+          color: '#2D224C',
+          fontSize: '19px',
 
-          background: "transparent",
-          "-webkit-text-fill-color": "#2D224C!important",
-          ":-webkit-background-clip": "text",
-          "&::after": {
-            borderColor: "#8065C9 ",
+          background: 'transparent',
+          '-webkit-text-fill-color': '#2D224C!important',
+          ':-webkit-background-clip': 'text',
+          '&::after': {
+            borderColor: '#8065C9 ',
           },
-          "&::before": {
-            borderColor: "#8065C9 ",
+          '&::before': {
+            borderColor: '#8065C9 ',
           },
-          "&.Mui-error:after": {
-            borderBottomColor: "#D4145A",
+          '&.Mui-error:after': {
+            borderBottomColor: '#D4145A',
           },
-          "&.Mui-error:before": {
-            borderBottomColor: "#D4145A",
+          '&.Mui-error:before': {
+            borderBottomColor: '#D4145A',
           },
-          "&::focus": {
-            background: "none",
+          '&::focus': {
+            background: 'none',
           },
           // "&"
         },
         input: {
-          "&::placeholder": {
+          '&::placeholder': {
             // opacity: "0.7",
-            color: "#9691A6",
+            color: '#9691A6',
           },
-          "-webkit-autofill": {
-            transition: "6000s!important",
-            animationName: "none!important",
+
+          '-webkit-autofill': {
+            transition: '6000s!important',
+            animationName: 'none!important',
           },
-          "-webkit-autofill:focus": {
-            transition:
-              "background-color 600000s 0s, color 600000s 0s !important",
+          '-webkit-autofill:focus': {
+            transition: 'background-color 600000s 0s, color 600000s 0s !important',
           },
-          ":-internal-autofill-selected": {
-            background: "none!important",
-            backgroundColor: "rgba(0,0,0,0)!important",
+          ':-internal-autofill-selected': {
+            background: 'none!important',
+            backgroundColor: 'rgba(0,0,0,0)!important',
           },
-          background: "transparent!important",
-          "-webkit-text-fill-color": "#2D224C!important",
-          ":-webkit-background-clip": "text!important",
+          background: 'transparent!important',
+          '-webkit-text-fill-color': '#2D224C!important',
+          ':-webkit-background-clip': 'text!important',
         },
       },
     },
     MuiOutlinedInput: {
+      input: {
+        '&::placeholder': {
+          // opacity: "0.7",
+          color: '#9691A6',
+        },
+
+        '-webkit-autofill': {
+          transition: '6000s!important',
+          animationName: 'none!important',
+          '-webkit-box-shadow': '0 0 0px 1000px white inset',
+        },
+        '-webkit-autofill:focus': {
+          transition: 'background-color 600000s 0s, color 600000s 0s !important',
+        },
+        ':-internal-autofill-selected': {
+          background: 'none!important',
+          backgroundColor: 'rgba(0,0,0,0)!important',
+        },
+        background: 'transparent!important',
+        '-webkit-text-fill-color': '#2D224C!important',
+        ':-webkit-background-clip': 'text!important',
+      },
       styleOverrides: {
         root: {
           // borderColor: "#8065C9",
           // borderWidth: "1px",
-          height: "59px",
+          height: '59px',
         },
         input: {
-          border: "none",
+          border: 'none',
         },
         notchedOutline: {
-          borderColor: "#2D224C",
+          borderColor: '#2D224C',
         },
       },
     },
@@ -188,8 +203,8 @@ export const theme = createTheme({
       styleOverrides: {
         select: {
           marginTop: 0,
-          "&:focus": {
-            backgroundColor: "transparent",
+          '&:focus': {
+            backgroundColor: 'transparent',
           },
         },
       },
@@ -197,19 +212,18 @@ export const theme = createTheme({
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          backgroundColor: "none",
-          color: "#2D224C",
-          "&.Mui-selected": {
-            backgroundColor: "#8065C9",
-            color: "white",
-            "&.Mui-focusVisible": { backgroundColor: "#8065C9" },
-            "&:hover": {
-              backgroundColor: "#8065C9",
+          backgroundColor: 'none',
+          color: '#2D224C',
+          '&.Mui-selected': {
+            backgroundColor: '#8065C9',
+            color: 'white',
+            '&.Mui-focusVisible': { backgroundColor: '#8065C9' },
+            '&:hover': {
+              backgroundColor: '#8065C9',
             },
           },
-
-          "& .Mui-disabled": {
-            backgroundColor: "none!important",
+          '& .Mui-disabled': {
+            backgroundColor: 'none!important',
           },
         },
       },
@@ -217,118 +231,109 @@ export const theme = createTheme({
     MuiFormHelperText: {
       styleOverrides: {
         root: {
-          fontSize: "13px",
-          color: "#D4145A",
-          fontWeight: "500",
-          marginLeft: "0",
-          marginRight: "0",
-          ["@media (min-width:768px)"]: {
+          fontSize: '13px',
+          color: '#D4145A',
+          fontWeight: '500',
+          marginLeft: '0',
+          marginRight: '0',
+          ['@media (min-width:768px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "15px",
+            fontSize: '15px',
           },
-          ["@media (min-width:1920px)"]: {
+          ['@media (min-width:1920px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "18px",
+            fontSize: '18px',
           },
-          ["@media (min-width:3500px)"]: {
+          ['@media (min-width:3500px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "28px",
+            fontSize: '28px',
           },
         },
       },
     },
     MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+      variants: [
+        {
+          props: { variant: 'contained', color: 'primary' },
+          style: {
+            borderColor: '#2D224C!important',
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'button' },
+          style: {
+            borderColor: '#2D224C!important',
+          },
+        },
+        {
+          props: { variant: 'contained' },
+          style: {
+            borderColor: 'currentcolor',
+          },
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            borderColor: 'currentcolor',
+            background: '#ffffff',
+          },
+        },
+        {
+          props: { variant: 'outlined', color: 'primary' },
+          style: {
+            borderColor: '#2D224C!important',
+          },
+        },
+      ],
       styleOverrides: {
         disabled: {},
         root: {
-          borderRadius: "11px",
-          fontWeight: "600",
-          fontSize: "20px",
-          "&.Mui-disabled": {
-            color: " rgba(73, 73, 73, 0.692)!important",
-            backgroundColor: "rgba(150, 150, 150, 0.548) !important",
+          fontFamily: 'Inter',
+          borderRadius: '7px',
+          // textTransform: 'capitalize',
+          fontWeight: '600',
+          fontSize: '1rem',
+          height: '35px',
+          borderStyle: 'solid',
+          borderWidth: '1px',
+
+          '&.Mui-disabled': {
+            opacity: '50%',
           },
         },
         sizeLarge: {
-          fontSize: "20px",
-          borderRadius: "11px",
-          padding: "14px 22px",
-          fontWeight: "600",
-          ["@media (max-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "16px",
-          },
-          // ["@media (min-width:1024px)"]: {
-          //   // eslint-disable-line no-useless-computed-key
-          // },
-          // ["@media (min-width:1280px)"]: {
-          //   // eslint-disable-line no-useless-computed-key
-          //   fontSize: "18px",
-          // },
-          ["@media (min-width:1920px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "20px",
-            // },
-            // ["@media (min-width:2300px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            // fontSize: "22px",
-          },
-          ["@media (min-width:3500px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "35px",
-            padding: "20px 22px",
-            borderRadius: "20px",
-          },
+          width: '100%',
+          maxWidth: '550px!important',
+        },
+        sizeMedium: {
+          width: '100%',
+          maxWidth: '200px',
         },
         sizeSmall: {
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            minWidth: "7px",
-            marginLeft: "13px",
-            padding: "4px 6px",
-          },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            minWidth: "8px",
-            padding: "6px 8px",
-            marginLeft: "13px",
-          },
-          ["@media (min-width:1280px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            minWidth: "10px",
-            padding: "8px 10px",
-            marginLeft: "13px",
-          },
-          ["@media (min-width:1920px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            minWidth: "18px",
-            padding: "14px 18px",
-            marginLeft: "20px",
-            aspectRatio: "1 / 1",
-          },
-          minWidth: "10px",
-          padding: "12px 14px",
-          borderRadius: "50%",
-          color: "white",
+          width: '100%',
+          maxWidth: '150px',
         },
       },
     },
     MuiListItemText: {
       styleOverrides: {
         primary: {
-          fontSize: "10px",
-          ["@media (min-width:768px)"]: {
+          fontSize: '10px',
+          ['@media (min-width:768px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "12px",
+            fontSize: '12px',
           },
-          ["@media (min-width:2300px)"]: {
+          ['@media (min-width:2300px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "14px",
+            fontSize: '14px',
           },
-          ["@media (min-width:3500px)"]: {
+          ['@media (min-width:3500px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "26px",
-            marginBottom: "0.5rem",
+            fontSize: '26px',
+            marginBottom: '0.5rem',
           },
         },
       },
@@ -336,15 +341,15 @@ export const theme = createTheme({
     MuiListItemSecondaryAction: {
       styleOverrides: {
         root: {
-          right: "20px",
-          transform: "translate(50%,-50%)",
-          ["@media (min-width:2300px)"]: {
+          right: '20px',
+          transform: 'translate(50%,-50%)',
+          ['@media (min-width:2300px)']: {
             // eslint-disable-line no-useless-computed-key
-            right: "25.5px",
+            right: '25.5px',
           },
-          ["@media (min-width:3500px)"]: {
+          ['@media (min-width:3500px)']: {
             // eslint-disable-line no-useless-computed-key
-            right: "48px",
+            right: '48px',
           },
         },
       },
@@ -352,165 +357,253 @@ export const theme = createTheme({
     MuiSvgIcon: {
       styleOverrides: {
         fontSizeLarge: {
-          ["@media (min-width:3500px)"]: {
+          ['@media (min-width:3500px)']: {
             // eslint-disable-line no-useless-computed-key
-            fontSize: "5rem",
-            "&.pb-1": {
-              fontSize: "3rem",
+            fontSize: '5rem',
+            '&.pb-1': {
+              fontSize: '3rem',
             },
-            "&.mr-2": {
-              fontSize: "3rem",
+            '&.mr-2': {
+              fontSize: '3rem',
             },
-            "&.check": {
-              fontSize: "3rem",
+            '&.check': {
+              fontSize: '3rem',
             },
           },
         },
       },
     },
+
     MuiPickerStaticWrapper: {
       styleOverrides: {
+        root: {
+          borderRadius: '7px',
+          height: '100%',
+
+          ['@media (min-width:1500px)']: {
+            width: '100%',
+          },
+          ['@media (min-width:768px)']: {
+            border: 'none',
+          },
+          '& .PrivatePickersSlideTransition-root ': {
+            height: '100%',
+            minHeight: '200px',
+            ['@media (min-width:768px)']: {
+              // minHeight: '400px',
+              height: '100%',
+            },
+            // minHeight: "max(263px,fit-content)",
+          },
+        },
         content: {
-          backgroundColor: "transparent",
-          minWidth: "265px",
+          height: '100%',
+          '&> *': {
+            height: '100%',
+            fontFamily: 'Inter',
+          },
+        },
+      },
+    },
+
+    MuiCalendarOrClockPicker: {
+      styleOverrides: {
+        root: {
+          height: '100%',
+          maxHeight: '100%!important',
+          // ['@media (max-width:768px)']: {
+          padding: '0',
+          // },
+          ['@media (min-width:1500px)']: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            maxHeight: 'unset!important',
+            minHeight: '500px',
+          },
+          '&>div': {
+            height: '100%',
+            width: '100%',
+            maxHeight: '100%',
+          },
         },
       },
     },
     MuiPickersCalendarHeader: {
       styleOverrides: {
         root: {
-          textTransform: "capitalize",
-          color: "#8065C9",
-          padding: "0 1rem",
+          textTransform: 'capitalize',
+          color: '#8065C9',
+          padding: 0,
+          // padding: '0 1rem',
+          ['@media (min-width:768px)']: {
+            height: '50px!important',
+          },
+          ['@media (min-width:1500px)']: {
+            minHeight: '50px!important',
+          },
+          margin: '0 0rem 0.5rem 0',
+          '&~div': {
+            height: 'calc(100% - 66px)!important',
+            ['@media (min-width:768px)']: {
+              height: 'calc(100% - 66px)!important',
+            },
+            ['@media (min-width:1500px)']: {
+              width: '100%',
+              height: 'calc(100% - 100px)!important',
+            },
+          },
         },
         label: {
-          marginRight: "0",
+          color: '#2D224C',
+          fontSize: '22px',
+          lineHeight: '140%',
+          fontWeight: '700',
+          ['@media (min-width:1500px)']: {
+            fontSize: '32px',
+          },
         },
         labelContainer: {
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "16px",
-            marginLeft: "0",
+          height: '32px',
+          maxHeight: '32px',
+          ['@media (min-width:1500px)']: {
+            height: '48px',
+            maxHeight: 'unset',
           },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "20px",
-            marginLeft: "0",
-          },
-          ["@media (min-width:1280px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "24px",
-            marginLeft: "0",
-          },
-          fontSize: "28px",
-          fontWeight: "700",
-          marginLeft: "auto",
         },
         switchViewButton: {
-          display: "none",
+          display: 'none',
         },
       },
     },
     MuiPickersArrowSwitcher: {
       styleOverrides: {
         root: {
-          position: "absolute",
-          left: "50%",
-          transform: "translateX(-50%)",
-          justifyContent: "space-between",
-          width: "310px",
+          height: '42px',
+          // position: 'absolute',
+          // left: '50%',
+          // transform: 'translateX(-50%)',
+          // justifyContent: 'space-between',
+          // width: '310px',
 
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            width: "13px",
-
-            position: "static",
-            transform: "translateX(-25px)",
-          },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            width: "20px",
-
-            position: "unset",
-            transform: "translateX(-20px)",
-          },
-          ["@media (min-width:1280px)"]: {
-            position: "static",
-            zIndex: "2",
-            transform: "translateX(-20px)",
-          },
-          "& svg": {
-            fontSize: "2rem",
-            ["@media (min-width:768px)"]: {
-              // eslint-disable-line no-useless-computed-key
-              width: "13px",
-              height: "13px",
-            },
-            ["@media (min-width:1024px)"]: {
-              // eslint-disable-line no-useless-computed-key
-              width: "15px",
-              height: "15px",
-            },
-            ["@media (min-width:1280px)"]: {
-              // eslint-disable-line no-useless-computed-key
-              width: "17px",
-              height: "17px",
-            },
+          // ['@media (min-width:768px)']: {
+          //     // eslint-disable-line no-useless-computed-key
+          //     width: '13px',
+          //
+          //     position: 'static',
+          //     transform: 'translateX(-25px)',
+          // },
+          // ['@media (min-width:1024px)']: {
+          //     // eslint-disable-line no-useless-computed-key
+          //     width: '20px',
+          //
+          //     position: 'unset',
+          //     transform: 'translateX(-20px)',
+          // },
+          // ['@media (min-width:1280px)']: {
+          //     position: 'static',
+          //     zIndex: '2',
+          //     transform: 'translateX(-20px)',
+          // },
+          '& svg': {
+            // fontSize: '2rem',
+            // ['@media (min-width:768px)']: {
+            //     // eslint-disable-line no-useless-computed-key
+            //     width: '13px',
+            //     height: '13px',
+            // },
+            // ['@media (min-width:1024px)']: {
+            //     // eslint-disable-line no-useless-computed-key
+            //     width: '15px',
+            //     height: '15px',
+            // },
+            // ['@media (min-width:1280px)']: {
+            //     // eslint-disable-line no-useless-computed-key
+            //     width: '32px',
+            //     height: '32px',
+            // },
           },
         },
         spacer: {
-          width: "8px",
+          width: '8px',
         },
         button: {
-          color: "#8065C9",
+          color: '#8065C9',
+          '&:not(.Mui-disabled)': {
+            color: '#2D224C',
+          },
         },
       },
     },
     MuiDayPicker: {
       styleOverrides: {
         root: {
-          minHeight: "0",
+          minHeight: '0',
         },
         header: {
-          justifyContent: "space-between",
+          height: '18px!important',
+          ['@media (min-width:1500px)']: {
+            height: '20px!important',
+          },
         },
         weekDayLabel: {
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "10px",
+          fontSize: '10px',
+          fontFamily: 'Inter',
+          fontWeight: '700',
+          color: '#8065C9',
+          width: '42px',
+          height: '18px!important',
+          ['@media (min-width:763px)']: {
+            width: '42px',
           },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "12px",
+          ['@media (min-width:1500px)']: {
+            height: '20px!important',
+            fontSize: '16px',
+            width: '14%',
+            marginRight: '0.5rem',
           },
-          ["@media (min-width:1280px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "14px",
-          },
-          color: "#8065C9",
-          fontSize: "13px",
         },
         weekContainer: {
-          marginBottom: "0.5rem",
-          justifyContent: "space-between",
+          marginBottom: '0.5rem',
+          justifyContent: 'space-between',
+        },
+        monthContainer: {
+          display: 'flex',
+          flexDirection: 'column',
+          '& .MuiPickersDay-dayOutsideMonth': {
+            background: 'none!important',
+            color: '#EEE!important',
+          },
+          '&>div:last-of-type .MuiPickersDay-dayOutsideMonth:not(.Mui-disabled)': {
+            background: '#F7F4FF!important',
+            color: '#D3C3FF!important',
+          },
         },
       },
     },
     MuiCalendarPicker: {
       styleOverrides: {
         root: {
-          width: "100%",
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            paddingRight: "1rem",
+          height: '100%',
+          maxHeight: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          // ['@media (max-width:768px)']: {
+          padding: '0!important',
+          // },
+          '& .MuiPickersFadeTransitionGroup-root>div': {
+            height: '100%',
+            maxHeight: '100%',
           },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            paddingRight: "1rem",
+          '& .MuiPickersFadeTransitionGroup-root>div>div': {
+            height: '100%',
+            maxHeight: '100%',
           },
-          ["@media (min-width:1280px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            paddingRight: "1rem",
+          ['@media (min-width:1500px)']: {
+            width: '100%',
+            maxHeight: 'auto',
+            minHeight: '500px',
           },
         },
       },
@@ -519,61 +612,97 @@ export const theme = createTheme({
     MuiPickersDay: {
       styleOverrides: {
         root: {
-          textTransform: "capitalize",
-          ["@media (min-width:768px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "9px",
-            width: "28px",
-            height: "28px",
-          },
-          ["@media (min-width:1024px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "11px",
-            width: "32px",
-            height: "32px",
-          },
-          ["@media (min-width:1280px)"]: {
-            // eslint-disable-line no-useless-computed-key
-            fontSize: "14px",
-            width: "36px",
-            height: "36px",
+          width: '42px',
+          height: 'clamp(30px,1vh + 0.5px,42px)',
+          fontSize: '14px',
+          fontWeight: '700',
+          color: '#8065C9',
+          backgroundColor: '#E7DEFF',
+          borderRadius: '7px',
+          ['@media (min-width:768px)']: {
+            width: '42px',
+            height: '42px',
+            fontSize: '20px',
           },
 
-          color: "#2D224C",
-          "&:not(.Mui-selected)": {
-            border: "none",
+          ['@media (min-width:1500px)']: {
+            width: '14%',
+            // maxHeight: '58px',
+            height: '14%',
+            aspectRatio: '1/1',
+            marginRight: '0.5rem',
+            fontSize: 'clamp(30px,25px + 4%,42px)',
           },
-          "&:not(.Mui-disabled)": {
-            // backgroundColor: "#a283f746",
+          // textTransform: 'capitalize',
+          // ['@media (min-width:768px)']: {
+          //     // eslint-disable-line no-useless-computed-key
+          //     fontSize: '9px',
+          //     width: '28px',
+          //     height: '28px',
+          // },
+          // ['@media (min-width:1024px)']: {
+          //     // eslint-disable-line no-useless-computed-key
+          //     fontSize: '11px',
+          //     width: '32px',
+          //     height: '32px',
+          // },
+          // ['@media (min-width:1280px)']: {
+          //     // eslint-disable-line no-useless-computed-key
+          //     fontSize: '14px',
+          //     width: '36px',
+          //     height: '36px',
+          // },
+          //
+          // color: '#2D224C',
+          // '&:not(.Mui-selected)': {
+          //     border: 'none',
+          // },
+          // '&:not(.Mui-disabled)': {
+          //     // backgroundColor: "#a283f746",
+          // },
+          // '&:not(.Mui-disabled):hover': {
+          //     // backgroundColor: "#9e7df998",
+          // },
+          '&.Mui-selected': {
+            backgroundColor: '#8065C9',
+            color: '#fff!important',
+            willChange: 'backgroundColor',
           },
-          "&:not(.Mui-disabled):hover": {
-            // backgroundColor: "#9e7df998",
+          '&.Mui-selected:hover': {
+            backgroundColor: '#8065C9',
+            willChange: 'backgroundColor',
           },
-          "&.Mui-selected": {
-            // backgroundColor: "#8065C9",
-            willChange: "backgroundColor",
+          '&.Mui-selected:focus': {
+            backgroundColor: '#8065C9',
+            willChange: 'backgroundColor',
           },
-          "&.Mui-selected:hover": {
-            backgroundColor: "#8065C9",
-            willChange: "backgroundColor",
-          },
-          "&.Mui-selected:focus": {
-            backgroundColor: "#8065C9",
-            willChange: "backgroundColor",
+          '& .Mui-disabled.MuiPickersDay-dayOutsideMonth': {},
+          '&:is(.Mui-disabled)': {
+            '&:not(.MuiPickersDay-dayOutsideMonth)': {
+              backgroundColor: '#EEE!important',
+              color: '#FFF',
+              willChange: 'backgroundColor',
+            },
           },
         },
         today: {
-          border: "none",
-          "&::before": {
-            borderRadius: "100%",
-            position: "absolute",
-            backgroundColor: "#2D224C",
-            height: "5px",
-            width: "5px",
-            left: "50%",
-            bottom: "10%",
-            content: '""',
-            transform: "translateX(-50%)",
+          border: '1px solid #8065C9!important',
+          color: '#8065C9!important',
+        },
+      },
+    },
+    MuiPickersFadeTransitionGroup: {
+      stylesOverride: {
+        root: {
+          display: 'grid',
+          "&>div'": {
+            display: 'grid',
+            flexDirection: 'column',
+            height: '100%',
+          },
+          '&>div>div': {
+            display: 'grid',
+            gridTemplateRows: '18px auto',
           },
         },
       },
