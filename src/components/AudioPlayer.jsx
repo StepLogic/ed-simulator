@@ -32,7 +32,7 @@ const AudioPlayer = (props) => {
       waveColor: "#D9D9D9",
       progressColor: "#8065C9", //"#8065C9",
       cursorColor: "transparent",
-      height: smUp ? 45 : 65,
+      height: smUp ? 22 : 65,
       responsive: true,
       interact: !!correction,
       normalize: true,
@@ -74,7 +74,7 @@ const AudioPlayer = (props) => {
         background: "#FFF",
         boxShadow: "0px 0px 19px 2px rgba(0, 0, 0, 0.25)",
       }}
-      className="flex flex-row items-center w-full max-w-[588px]  max-h-[70px] lg:max-h-[80px] py-2 pl-2 pr-4 lg:mx-0"
+      className="flex flex-row items-center w-full max-w-[588px]  max-h-[45px] lg:max-h-[80px] py-2 pl-2 pr-4 lg:mx-0"
     >
       <Box className={`flex flex-col items-center justify-center mr-4 ${""}`}>
         {isLoading ? (
@@ -127,7 +127,7 @@ const AudioPlayer = (props) => {
         )}
       </Box>
       <div className="w-full overflow-hidden" ref={containerRef} />
-      <p className={"text-[14px] text-primary"}>{duration}</p>
+      <p className={"lg:text-sm text-[10px]  text-primary"}>{duration}</p>
     </Box>
   );
 };

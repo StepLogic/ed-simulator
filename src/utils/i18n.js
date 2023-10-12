@@ -18,7 +18,9 @@ const it = {
       button: "Iniziamo!",
     },
     quiz: {
-      instructionOne: "Ascolta l’audio per rispondere alla domanda",
+      instructionOne:
+        "Rispondi alla domanda basandoti sulla registrazione qui sotto. Puoi ascoltare la registrazione una sola volta.",
+      instructionTwo: "Rispondi alla domanda, scegliendo la risposta giusta",
       backButton: "Indietro",
       button: "Avanti",
     },
@@ -40,13 +42,15 @@ const en = {
       instructionOne:
         "Ensure that you are situated in a tranquil setting and have ample time to complete the test. ",
       instructionTwo:
-        "In the event of non-completion, you will be require to restart from the beginning",
+        "In the event of non-completion, you will be required to restart from the beginning",
       button: "Get started!",
     },
     quiz: {
       text: "What is your English level?",
       subText: "Test it now!",
-      instructionOne: "Listen the audio below to answer",
+      instructionOne:
+        "Answer the question based on the recording below. You can listen to the recording once only.",
+      instructionTwo: "Answer the question, choosing the right answer ",
       backButton: "Back",
       button: "Next",
     },

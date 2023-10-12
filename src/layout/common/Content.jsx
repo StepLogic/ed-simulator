@@ -30,11 +30,10 @@ function Content(props) {
             value={props?.progress * 100}
           />
         </div>
-        <div className="flex flex-col  justify-evenly items-center h-full">
+        <div className="flex flex-col  justify-evenly items-center h-full px-4">
           {props?.children}
         </div>
       </div>
-
       <Footer
         noBackground={true}
         button={

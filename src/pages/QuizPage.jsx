@@ -51,7 +51,7 @@ const QuizPage = () => {
     dpCopyAnswer[activeQuestion] = value;
     setAnswers(dpCopyAnswer);
   };
-  const smUp = useMediaQuery("(max-width:1047px)");
+
   const { t, i18n } = useTranslation();
   useEffect(() => {
     i18n.changeLanguage("en");
@@ -66,14 +66,14 @@ const QuizPage = () => {
         onBack={() => back()}
         progress={(activeQuestion + 0.01) / (questions.length - 1)}
       >
-        {questions[activeQuestion]?.audio && !smUp && (
-          <div className={"w-full  items-center flex flex-col gap-4"}>
-            <p className={"text-lg text-primary text-center"}>
-              {t("quiz.instructionOne")}
-            </p>
-            <AudioPlayer src={questions[activeQuestion].audio} />
-          </div>
-        )}
+        <div className={"w-full  items-center flex flex-col gap-4"}>
+          <p className={"text-sm leading-[100%] text-primary text-center"}>
+            {!questions[activeQuestion]?.audio
+              ? t("quiz.instructionTwo")
+              : t("quiz.instructionOne")}
+          </p>
+        </div>
+
         <Typography
           color={"primary"}
           sx={{
@@ -86,11 +86,16 @@ const QuizPage = () => {
         >
           {questions[activeQuestion].question}
         </Typography>
+        {questions[activeQuestion]?.audio && (
+          <div className={"w-full  items-center flex flex-col gap-4 px-4"}>
+            <AudioPlayer src={questions[activeQuestion].audio} />
+          </div>
+        )}
         <Box
           sx={{
             display: "grid",
             gridTemplateColumns: "1fr",
-            width: "90%",
+            width: "100%",
             gap: "1rem",
 
             "& button": {
@@ -116,11 +121,12 @@ const QuizPage = () => {
             },
             ["@media (max-width:763px)"]: {
               "& button": {
-                minWidth: "90vw",
+                minWidth: "100%",
                 textTransform: "none",
               },
             },
           }}
+          className={"container mx-auto"}
         >
           {questions[activeQuestion].options.map((r) => (
             <Button
@@ -151,14 +157,6 @@ const QuizPage = () => {
             </Button>
           ))}
         </Box>
-        {questions[activeQuestion]?.audio && smUp && (
-          <div className={"w-full  items-center flex flex-col gap-2 px-4"}>
-            <p className={"text-[10px] text-primary text-center"}>
-              Listen the audio below to answer
-            </p>
-            <AudioPlayer src={questions[activeQuestion].audio} />
-          </div>
-        )}
       </Content>
     </Layout>
   );
