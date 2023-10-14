@@ -3,9 +3,9 @@ import cn from "classnames";
 function Footer(props) {
   return (
     <div
-      className={cn("flex flex-col  h-full justify-center items-center ", {
-        " bg-[#D9DAF3]": !props?.noBackground,
-      })}
+      className={cn(
+        "flex flex-col  h-full justify-center items-center bg-[#D9DAF3] ",
+      )}
     >
       <div
         className={

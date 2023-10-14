@@ -46,7 +46,6 @@ function Layout(props) {
             {languages.map((r, i) => (
               <MenuItem key={i} value={r.value}>
                 <p>{r.label}</p>&nbsp;
-                {r?.value === "it" ? <CaItalianFlag /> : <CaBritishFlag />}
               </MenuItem>
             ))}
           </LanguageSelector>
